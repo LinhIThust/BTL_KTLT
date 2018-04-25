@@ -9,6 +9,6 @@ void creatData(char* fn,long n){
 	}
 }
 int main(){
-	creatData("chuoi1.txt",600000);
-	creatData("chuoi2.txt",600000);
+	creatData("chuoi1.txt",10000);
+	creatData("chuoi2.txt",10000);
 }

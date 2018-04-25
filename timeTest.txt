@@ -1,0 +1,47 @@
+10k
+Time run1: 0.129 s
+Time run2: 0.016 s
+Time run3:
+Time run3: 0 s
+-------------------
+50k
+Time run1: 3.904 s
+Time run2: 0.281 s
+Time run3:
+Time run4: 0.001 s
+-------------------
+100k
+Time run1: 16.481 s
+Time run2: 1.374 s
+Time run3: 
+Time run4: 0.001 s
+-------------------
+500k
+Time run1: 3.904 s
+Time run2: 0.281 s
+Time run3:
+Time run4: 0.005 s
+------------------
+5MB
+Time run1:xxxx
+Time run2:xxxx
+Time run3:xxxx
+Time run4: 0.028 s
+------------------
+10MB
+Time run1:xxx
+Time run2:xxx
+Time run3:xxxx
+Time run4: 0.055 s
+------------------
+50MB (50 tr)
+Time run1: xxxx
+Time run2: xxxx
+Time run3: xxxx
+Time run4: 0.271 s
+------------------
+100MB (100 tr)
+Time run1: xxxx
+Time run2: xxxx
+Time run3: xxxx
+Time run4: 0.56 s

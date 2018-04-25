@@ -23,14 +23,14 @@ int sizeoffile(char* fn){
 	fclose(f);
 	return size;
 }
-//============================================
+//===================================================
 bool check_size(long k1,long k2){
 	if(k1==k2 && k1!=0 && k2 !=0){
 		return true;
 	}
 	return false;
 }
-//============================================
+//===================================================
 int readFile(char* fn,char*p) {
 	FILE* f= fopen(fn,"r");
 	char ch;
@@ -48,7 +48,7 @@ int readFile(char* fn,char*p) {
     fclose(f);
 	return i;
 }
-//============================================
+//===================================================
 //<quick_sort for algorithm2>
 int Partition(char *p, long L, long R, long Index_Pivot){
 
@@ -65,7 +65,7 @@ int Partition(char *p, long L, long R, long Index_Pivot){
     swap(p[Store_Index],p[R]);
     return Store_Index;
 }
-//===================================
+//===============
 void Quick_Sort(char *p, long L, long R){
     if(L < R){
         long Index = L;
@@ -77,8 +77,7 @@ void Quick_Sort(char *p, long L, long R){
     }
 }
 //===================================================
-//<check_off>
-bool algorithm1(char *p1, char *p2, long k){
+bool algorithm1(char *p1,char* p2, long k){
     long i,j;
     bool mark[k] = {};// initialization array check_off
     f(i,0,k){
@@ -96,7 +95,7 @@ bool algorithm1(char *p1, char *p2, long k){
     return true;
 }
 //===================================================
-bool algorithm2(char *p1, char *p2, long k){
+bool algorithm2(char *p1,char* p2, long k){
     long i;
     Quick_Sort(p1,0,k-1);
     Quick_Sort(p2,0,k-1);
@@ -106,7 +105,7 @@ bool algorithm2(char *p1, char *p2, long k){
     return true;
  }
 //===================================================
-bool algorithm3(char* p1,char* p2,long k){
+bool algorithm3(char *p1,char* p2, long k){
 	f(i,0,k){
 		char nbSwap=0;
 		f(j,i,k){
@@ -121,7 +120,7 @@ bool algorithm3(char* p1,char* p2,long k){
 	return true;
 }
 //===================================================
-bool algorithm4(char* p1,char* p2,long k){
+bool algorithm4(char *p1,char* p2, long k){
 	long i1=0,i2=0;
 	long counter[26];
 	f(i,0,25) counter[i] =0;
@@ -147,8 +146,8 @@ int main(){
 	k2=readFile("chuoi2.txt",p2);
 	cout<<k1<<endl;
 	if(check_size(k1,k2)){
-		clock_t begin = clock();
-		if(algorithm1(p1,p2,k1)){
+	/*	clock_t begin = clock();
+		if(algorithm3(p1,p2,k1)){
 			printf("LA XAU DAO!!\n");
 		}
 		else
@@ -158,7 +157,29 @@ int main(){
 	}
 	else{
 		printf("KHONG LA XAU DAO\n");
+*/
 	}
+	cout<< "Data size:"<<k1<<" characters"<<endl;
+//--------------------------------------------------------------------
+	clock_t begin = clock();
+	if(algorithm1(p1,p2,k1));
+	clock_t end = clock();
+	cout<<"Time run1: "<<(float)(end-begin)/CLOCKS_PER_SEC<<" s"<<endl;
+
+	clock_t begin2 = clock();
+	if(algorithm2(p1,p2,k1));
+	clock_t end2 = clock();
+	cout<<"Time run2: "<<(float)(end2-begin2)/CLOCKS_PER_SEC<<" s"<<endl;
+
+	clock_t begin3 = clock();
+	if(algorithm3(p1,p2,k1));
+	clock_t end3 = clock();
+	cout<<"Time run3: "<<(float)(end3-begin3)/CLOCKS_PER_SEC<<" s"<<endl;
+
+	clock_t begin4 = clock();
+	if(algorithm4(p1,p2,k1));
+	clock_t end4= clock();
+	cout<<"Time run4: "<<(float)(end4-begin4)/CLOCKS_PER_SEC<<" s"<<endl;
 
 }
 
