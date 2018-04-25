@@ -1,0 +1,19 @@
+if(check_size(k1,k2)){
+	cout<< "Data size:"<<k1<<" characters"<<endl;
+	clock_t begin = clock();
+	if(algorithm1(p1,p2,k1));
+	clock_t end = clock();
+	cout<<"Time run: "<<(float)(end-begin)/CLOCKS_PER_SEC<<" s"<<endl;
+	clock_t begin2 = clock();
+	if(algorithm2(p1,p2,k1));
+	clock_t end2 = clock();
+	cout<<"Time run: "<<(float)(end2-begin2)/CLOCKS_PER_SEC<<" s"<<endl;
+	clock_t begin3 = clock();
+	if(algorithm3(p1,p2,k1));
+	clock_t end3 = clock();
+	cout<<"Time run: "<<(float)(end3-begin3)/CLOCKS_PER_SEC<<" s"<<endl;
+	clock_t begin4 = clock();
+	if(algorithm4(p1,p2,k1));
+	clock_t end4= clock();
+	cout<<"Time run: "<<(float)(end4-begin4)/CLOCKS_PER_SEC<<" s"<<endl;
+}
