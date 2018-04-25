@@ -145,10 +145,10 @@ int main(){
 	p2 = new char[m];
 	k1=readFile("chuoi1.txt",p1);
 	k2=readFile("chuoi2.txt",p2);
+	cout<<k1<<endl;
 	if(check_size(k1,k2)){
 		clock_t begin = clock();
-		if(algorithm3(p1,p2,k1))
-		{
+		if(algorithm1(p1,p2,k1)){
 			printf("LA XAU DAO!!\n");
 		}
 		else
