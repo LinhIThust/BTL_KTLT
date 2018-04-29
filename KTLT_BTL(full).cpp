@@ -15,6 +15,7 @@ long k1,k2;
 long n,m;
 char* p1;
 char* p2;
+
 int sizeoffile(char* fn){
 	long size;
 	FILE* f=fopen(fn,"r");
@@ -40,7 +41,8 @@ int readFile(char* fn,char*p) {
 		if(feof(f)){
 			break;
 		}
-		if((ch >=65 && ch<=90)||(ch>=97 && ch<=122)){
+		if((ch >=65 && ch<=90)||
+			(ch>=97 && ch<=122)){
 				p[i]=toupper(ch);
 				i++;
 		}
@@ -146,40 +148,13 @@ int main(){
 	k2=readFile("chuoi2.txt",p2);
 	cout<<k1<<endl;
 	if(check_size(k1,k2)){
-	/*	clock_t begin = clock();
-		if(algorithm3(p1,p2,k1)){
+		if(algorithm4(p1,p2,k1)){
 			printf("LA XAU DAO!!\n");
 		}
 		else
 			printf("KHONG LA XAU DAO\n");
-		clock_t end = clock();
-		cout<<"Time run: "<<(float)(end-begin)/CLOCKS_PER_SEC<<" s"<<endl;
 	}
-	else{
+	else
 		printf("KHONG LA XAU DAO\n");
-*/
-	}
-	cout<< "Data size:"<<k1<<" characters"<<endl;
-//--------------------------------------------------------------------
-	clock_t begin = clock();
-	if(algorithm1(p1,p2,k1));
-	clock_t end = clock();
-	cout<<"Time run1: "<<(float)(end-begin)/CLOCKS_PER_SEC<<" s"<<endl;
-
-	clock_t begin2 = clock();
-	if(algorithm2(p1,p2,k1));
-	clock_t end2 = clock();
-	cout<<"Time run2: "<<(float)(end2-begin2)/CLOCKS_PER_SEC<<" s"<<endl;
-
-	clock_t begin3 = clock();
-	if(algorithm3(p1,p2,k1));
-	clock_t end3 = clock();
-	cout<<"Time run3: "<<(float)(end3-begin3)/CLOCKS_PER_SEC<<" s"<<endl;
-
-	clock_t begin4 = clock();
-	if(algorithm4(p1,p2,k1));
-	clock_t end4= clock();
-	cout<<"Time run4: "<<(float)(end4-begin4)/CLOCKS_PER_SEC<<" s"<<endl;
-
 }
 
