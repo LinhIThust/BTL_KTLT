@@ -12,10 +12,9 @@ copyright ©
 #define f(i,a,b) for(long i=a;i<b;i++)
 using namespace std;
 long k1,k2;
+long k;
 long n,m;
-char* p1;
-char* p2;
-
+char *p1,*p2;
 int sizeoffile(char* fn){
 	long size;
 	FILE* f=fopen(fn,"r");
@@ -36,8 +35,8 @@ int readFile(char* fn,char*p) {
 	FILE* f= fopen(fn,"r");
 	char ch;
 	long i=0;
-		while(1){
-			fscanf(f,"%c",&ch);
+	while(1){
+		fscanf(f,"%c",&ch);
 		if(feof(f)){
 			break;
 		}
@@ -52,62 +51,53 @@ int readFile(char* fn,char*p) {
 }
 //===================================================
 //<quick_sort for algorithm2>
-int Partition(char *p, long L, long R, long Index_Pivot){
-
-    char Pivot = p[Index_Pivot];
-    swap(p[Index_Pivot],p[R]);
-    long Store_Index = L;
-    long i;
-	f(i,L,R-1){
-        if(p[i] < Pivot){
-            swap(p[Store_Index],p[i]);
-            Store_Index++;
-        }
-    }
-    swap(p[Store_Index],p[R]);
-    return Store_Index;
-}
-//===============
-void Quick_Sort(char *p, long L, long R){
-    if(L < R){
-        long Index = L;
-        Index = Partition(p,L,R,Index);
-        if(L < Index)
-            Quick_Sort(p,L,Index-1);
-        if(Index < R)
-            Quick_Sort(p,Index+1,R);
-    }
+void Quick_Sort(long L, long R,char*p){
+	int i,j;
+	char pivot;
+	i = L;
+	j = R;
+	pivot = p[L+ rand()%(R-L+1)];
+	do{
+		while(p[i] < pivot) i++;
+		while(p[j] > pivot) j--;
+		if( i<=j){
+			swap(p[i],p[j]);
+			i++;j--;
+		}
+	} while( i<=j);
+	if( i < R) Quick_Sort(i,R,p);
+	if( j > L) Quick_Sort(L,j,p);
 }
 //===================================================
-bool algorithm1(char *p1,char* p2, long k){
+bool algorithm1(){
     long i,j;
     bool mark[k] = {};// initialization array check_off
     f(i,0,k){
-	   char nbMark=0;
+	   char flag=0;
        f(j,0,k){
 		if((p1[i] == p2[j]) && mark[j] == false){
             mark[j] = true;
-            nbMark =1;
+            flag =1;
             break;
           }
        }
-       if( !nbMark)
+       if( !flag)
 			return false;
     }
     return true;
 }
 //===================================================
-bool algorithm2(char *p1,char* p2, long k){
+bool algorithm2(){
     long i;
-    Quick_Sort(p1,0,k-1);
-    Quick_Sort(p2,0,k-1);
+    Quick_Sort(0,k-1,p1);
+    Quick_Sort(0,k-1,p2);
     f(i,0,k){
         if(p1[i] != p2[i]) return false;
     }
     return true;
  }
 //===================================================
-bool algorithm3(char *p1,char* p2, long k){
+bool algorithm3(){
 	f(i,0,k){
 		char nbSwap=0;
 		f(j,i,k){
@@ -122,7 +112,7 @@ bool algorithm3(char *p1,char* p2, long k){
 	return true;
 }
 //===================================================
-bool algorithm4(char *p1,char* p2, long k){
+bool algorithm4(){
 	long i1=0,i2=0;
 	long counter[26];
 	f(i,0,25) counter[i] =0;
@@ -146,9 +136,9 @@ int main(){
 	p2 = new char[m];
 	k1=readFile("chuoi1.txt",p1);
 	k2=readFile("chuoi2.txt",p2);
-	cout<<k1<<endl;
 	if(check_size(k1,k2)){
-		if(algorithm4(p1,p2,k1)){
+		k=k1;
+		if(algorithm4()){
 			printf("LA XAU DAO!!\n");
 		}
 		else
@@ -156,5 +146,7 @@ int main(){
 	}
 	else
 		printf("KHONG LA XAU DAO\n");
+	delete p1;
+	delete p2;
 }
 

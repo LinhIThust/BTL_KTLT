@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+
 void creatData(char* fn,long n){
 	FILE*f = fopen(fn,"w");
 	char ch;
@@ -9,6 +10,7 @@ void creatData(char* fn,long n){
 	}
 }
 int main(){
-	creatData("chuoi1.txt",1000000);
-	creatData("chuoi2.txt",1000000);
+	creatData("chuoi1.txt",1000);
+	creatData("chuoi2.txt",1000);
+	return 0;
 }
